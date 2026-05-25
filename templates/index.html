@@ -1,0 +1,175 @@
+<!-- ==============================
+templates/index.html
+============================== -->
+
+<!-- <!doctype html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+
+    <style>
+      body {
+        background: #f3f4f6;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 700px;
+        margin: 200px auto;
+      }
+
+      .card {
+        background: white;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 26px;
+        font-weight: 800;
+        margin-bottom: 25px;
+        color: #111;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        font-size: 14px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background: #111;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #333;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>실측 기반 남자 쇼핑 추천</h1>
+
+        <form action="/search">
+          <input
+            type="text"
+            name="keyword"
+            placeholder="예: 반팔, 셔츠, 맨투맨"
+            required
+          />
+
+          <button type="submit">검색</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html> -->
+<!-- ===================================== -->
+<!-- index.html -->
+<!-- ===================================== -->
+
+<!doctype html>
+
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+
+    <style>
+      body {
+        background: #f5f5f5;
+      }
+
+      .container {
+        margin-top: 80px;
+
+        max-width: 700px;
+      }
+
+      .search-box {
+        background: white;
+
+        padding: 40px;
+
+        border-radius: 20px;
+
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      h1 {
+        text-align: center;
+
+        margin-bottom: 30px;
+
+        color: black;
+      }
+
+      button {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="search-box">
+        <h1>실측 기반 남자 쇼핑몰 추천</h1>
+
+        <form action="/search">
+          <!-- 검색어 -->
+          <input
+            type="text"
+            name="keyword"
+            placeholder="반팔, 셔츠, 니트..."
+            required
+          />
+
+          <!-- 어깨 -->
+          <input
+            type="number"
+            name="shoulder"
+            placeholder="원하는 어깨"
+            required
+          />
+
+          <!-- 가슴 -->
+          <input
+            type="number"
+            name="chest"
+            placeholder="원하는 가슴"
+            required
+          />
+
+          <!-- 총장 -->
+          <input
+            type="number"
+            name="length"
+            placeholder="원하는 총장"
+            required
+          />
+
+          <button type="submit">추천받기</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

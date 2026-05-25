@@ -1,0 +1,52 @@
+<!-- <html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <style>
+      th,
+      td {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>검색결과</h1>
+
+      <p>잡코리아에서 검색한 결과입니다</p>
+
+      <a href="/file?keyword={{keyword}}">
+        <button>csv 다운로드</button>
+      </a>
+
+      <table class="striped">
+        <thead data-theme="light">
+          <tr>
+            <th>No</th>
+            <th>회사</th>
+            <th>공고 제목</th>
+            <th>지역</th>
+            <th>링크</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for i, job in jobs %}s
+          <tr>
+            <td>{{i+1}}</td>
+            <td>{{job["company"]}}</td>
+            <td>{{job["title"]}}</td>
+            <td>{{job["location"]}}</td>
+
+            <td>
+              <a href="{{job['link']}}" target="_blank"> 바로가기 </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html> -->

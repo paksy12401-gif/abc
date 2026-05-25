@@ -1,0 +1,383 @@
+<!-- <html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <style>
+      th,
+      td {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>검색결과</h1>
+
+      <p>인크루트, 잡코리아에서 검색한 결과입니다</p>
+
+      <a href="/file?keyword={{keyword}}">
+        <button>csv 다운로드</button>
+      </a>
+
+      <table class="striped">
+        <thead data-theme="light">
+          <tr>
+            <th>No</th>
+            <th>회사</th>
+            <th>공고 제목</th>
+            <th>지역</th>
+            <th>링크</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for i, job in jobs %}
+          <tr>
+            <td>{{i+1}}</td>
+            <td>{{job["company"]}}</td>
+            <td>{{job["title"]}}</td>
+            <td>{{job["location"]}}</td>
+
+            <td>
+              <a href="{{job['link']}}" target="_blank"> 바로가기 </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html> -->
+<!-- <h1>테스트중</h1>
+<!doctype html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>검색 결과</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+
+    <style>
+      body {
+        background: #f5f5f5;
+      }
+
+      .container {
+        margin-top: 40px;
+
+        margin-bottom: 80px;
+      }
+
+      .top-box {
+        background: white;
+
+        padding: 30px;
+
+        border-radius: 20px;
+
+        margin-bottom: 30px;
+
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      table {
+        background: white;
+
+        border-radius: 20px;
+
+        overflow: hidden;
+
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      thead {
+        background: #111827;
+
+        color: white;
+      }
+
+      th,
+      td {
+        text-align: center;
+
+        vertical-align: middle;
+      }
+
+      .product-name {
+        font-weight: bold;
+
+        font-size: 15px;
+      }
+
+      .price {
+        color: #e11d48;
+
+        font-weight: bold;
+      }
+
+      .link-btn {
+        background: #111827;
+
+        color: white;
+
+        padding: 8px 14px;
+
+        border-radius: 10px;
+
+        text-decoration: none;
+      }
+
+      .link-btn:hover {
+        background: #374151;
+
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="top-box">
+        <h1>실측 기반 추천 결과</h1>
+
+        <p>'{{keyword}}' 검색 결과</p>
+
+        <a href="/file?keyword={{keyword}}">
+          <button>CSV 다운로드</button>
+        </a>
+      </div>
+
+      <table class="striped">
+        <thead>
+          <tr>
+            <th>순위</th>
+            <th>상품명</th>
+            <th>가격</th>
+            <th>어깨</th>
+            <th>가슴</th>
+            <th>총장</th>
+            <th>링크</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for product in jobs %}
+
+          <tr>
+            <td>{{loop.index}}</td>
+
+            <td class="product-name">{{product["brand_name"]}}</td>
+
+            <td class="price">{{product["price"]}}원</td>
+
+            <td>{{product["shoulder"]}}</td>
+
+            <td>{{product["chest"]}}</td>
+
+            <td>{{product["length"]}}</td>
+
+            <td>
+              <a href="{{product['link']}}" target="_blank" class="link-btn">
+                바로가기
+              </a>
+            </td>
+          </tr>
+
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html> -->
+<!-- <!doctype html>
+
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>추천 결과</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>순위</th>
+            <th>상품명</th>
+            <th>이미지</th>
+            <th>가격</th>
+
+            <th>어깨</th>
+            <th>가슴</th>
+            <th>총장</th>
+
+            <th>점수</th>
+
+            <th>링크</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for p in products %}
+
+          <tr>
+            <td>{{loop.index}}</td>
+
+            <td>
+              {{p["brand_name"]}} {% if p["raglan"] %} (레글런) {% endif %}
+            </td>
+            <td><img src="{{p['image']}}" width="80" /></td>
+            <td>{{p["price"]}}원</td>
+
+            <td>{{p["shoulder"]}}</td>
+            <td>{{p["chest"]}}</td>
+            <td>{{p["length"]}}</td>
+
+            <td>
+              {% if p["score"] >= 90 %} 🔥 {{p["score"]}} {% elif p["score"] >=
+              70 %} 👍 {{p["score"]}} {% else %} {{p["score"]}} {% endif %}
+            </td>
+
+            <td>
+              <a href="{{p['link']}}" target="_blank"> 바로가기 </a>
+            </td>
+          </tr>
+
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html> -->
+<!doctype html>
+
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+
+    <style>
+      body {
+        background: #f5f5f5;
+      }
+
+      .container {
+        margin-top: 40px;
+      }
+
+      table {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+
+      img {
+        object-fit: cover;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>추천 결과</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>순위</th>
+
+            <th>상품</th>
+
+            <th>가격</th>
+
+            <th>어깨</th>
+
+            <th>가슴</th>
+
+            <th>총장</th>
+
+            <th>점수</th>
+
+            <th>링크</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for p in products %}
+
+          <tr>
+            <td>{{loop.index}}</td>
+
+            <!-- 상품 -->
+            <td>
+              <div style="display: flex; align-items: center; gap: 14px">
+                <!-- 이미지 -->
+                <img
+                  src="{{p['image']}}"
+                  width="90"
+                  height="90"
+                  style="border-radius: 12px; object-fit: cover"
+                />
+
+                <!-- 텍스트 -->
+                <div>
+                  <!-- 쇼핑몰 -->
+                  <div style="font-size: 12px; color: gray; margin-bottom: 6px">
+                    {{p["mall"]}}
+                  </div>
+
+                  <!-- 상품명 -->
+                  <div style="font-weight: bold; margin-bottom: 5px">
+                    {{p["brand_name"]}} {% if p["raglan"] %} (레글런) {% endif
+                    %}
+                  </div>
+
+                  <!-- 설명 -->
+                  <div style="font-size: 13px; color: #666">{{p["title"]}}</div>
+                </div>
+              </div>
+            </td>
+
+            <!-- 가격 -->
+            <td>{{p["price"]}}원</td>
+
+            <!-- 실측 -->
+            <td>{{p["shoulder"]}}</td>
+
+            <td>{{p["chest"]}}</td>
+
+            <td>{{p["length"]}}</td>
+
+            <!-- 점수 -->
+            <td>
+              {% if p["score"] >= 90 %} 🔥 {{p["score"]}} {% elif p["score"] >=
+              70 %} 👍 {{p["score"]}} {% else %} {{p["score"]}} {% endif %}
+            </td>
+
+            <!-- 링크 -->
+            <td>
+              <a href="{{p['link']}}" target="_blank"> 바로가기 </a>
+            </td>
+          </tr>
+
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
